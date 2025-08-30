@@ -1,9 +1,0 @@
-import { View, Text } from "react-native";
-
-export default function Header({ title }) {
-  return (
-    <View className="h-12 bg-white border-b border-gray-200 justify-center items-center">
-      <Text className="font-bold text-lg">{title}</Text>
-    </View>
-  );
-}
