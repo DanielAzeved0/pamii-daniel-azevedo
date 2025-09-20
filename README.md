@@ -1,180 +1,72 @@
-# pamii-daniel-azevedo
-Aulas de Programação de Aplicativos Mobile II com o professor João Siles
+🖥️ Next.js Project Setup
 
-# Aula 04 — Criando API Routes com Next.js e Tela de SignIn
+Este é um projeto Next.js criado com o comando create-next-app
+.
 
-    http://localhost:3000
+🚀 Começando com o Projeto
 
+Para rodar o servidor de desenvolvimento, use um dos seguintes comandos no terminal:
 
+# Usando npm
+npm run dev
 
+# Ou com yarn
+yarn dev
 
+# Ou pnpm
+pnpm dev
 
-
-
-
-
-     export default function handler(req, res) {
-
-        
-
-
-
-        return res.status(200).json({ message: "Login realizado com sucesso!" });
-
-        
-
-        }
-        
-	    return res.status(401).json({ error: "Credenciais inválidas" });
-    
-	    }
-    
-
-	    return res.status(405).json({ error: "Método não permitido" });
+# Ou bun
+bun dev
 
 
-	    }
+Depois de rodar o servidor, abra seu navegador e acesse:
 
+http://localhost:3000
 
+Você verá a aplicação rodando localmente! 🎉
 
-  
+✨ Comece a Editar!
 
-O que o código faz:
+O Next.js tem uma experiência de desenvolvimento incrível, onde as mudanças são refletidas automaticamente. Para começar a editar, abra o arquivo app/page.tsx. Todas as edições serão aplicadas de forma instantânea no seu navegador!
 
+🆕 Fontes Otimizadas
 
- - Recebe requisições HTTP.
- - Se o método for POST, extrai email e password do corpo.
- - Se as credenciais forem válidas, retorna status 200 com mensagem de
-   sucesso.
- - Caso contrário, retorna status 401 com mensagem de erro.
- - Para outros métodos, responde com status 405.
+Este projeto utiliza o recurso next/font para carregar automaticamente a fonte Geist, uma fonte moderna desenvolvida pela Vercel. Isso melhora a performance e a estética da aplicação, mantendo uma ótima experiência para o usuário.
 
-**Testando o endpoint**
+📚 Aprenda Mais sobre Next.js
 
-Você pode usar Postman, Insomnia ou até um fetch no navegador para testar:
+Aqui estão alguns links para você aprender mais e aprofundar seus conhecimentos sobre Next.js:
 
+Documentação Oficial do Next.js
+ - Encontre todos os recursos e APIs.
 
-Endpoint: POST http://localhost:3000/api/login
+Aprenda Next.js
+ - Um tutorial interativo e prático para iniciantes.
 
-    
+Repositório GitHub do Next.js
+ - Contribuições e feedback são bem-vindos!
 
-    "email": "admin@teste.com",
+🚀 Deploy na Vercel
 
-    
-    }
-    
-    Resposta esperada – Sucesso:
-    
-    { "message": "Login realizado com sucesso!" }
-    Resposta esperada – Erro:
-    
-    { "error": "Credenciais inválidas" }
-## Criando a tela de SignIn
+A maneira mais fácil de fazer o deploy da sua aplicação Next.js é através da plataforma Vercel
+.
 
-Crie um arquivo pages/signin.js:
+A Vercel oferece uma integração nativa com Next.js, garantindo deploys rápidos e fáceis. Para mais informações sobre como fazer o deploy, consulte nossa documentação sobre Deploy
+.
 
+👥 Contribua!
 
-    import { useState } from "react";
+Sinta-se à vontade para contribuir para o desenvolvimento do Next.js! Seu feedback e contribuições são sempre bem-vindos. 🛠️
 
-    
+📦 Comandos úteis do npm
 
-    import axios from "axios";
-    
-    export default function SignIn() {
-    
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [msg, setMsg] = useState("");
-    
-    async function handleLogin(e) {
-    e.preventDefault();
-    try {
-    const res = await axios.post("/api/login", { email, password });
-    setMsg(res.data.message);
-    } catch (err) {
-    setMsg(err.response.data.error);
-    }
-    }
-    
-    return (
-    <div  style={{  padding:  20  }}>
-    
-    <h1>Login</h1>
-    
-    <form  onSubmit={handleLogin}>
-    
-    <input
-    
-    type="email"
-    
-    placeholder="Digite seu email"
-    
-    value={email}
-    
-    onChange={(e) => setEmail(e.target.value)}
-    
-    /><br/>
-    <input
-    
-    type="password"
-    
-    placeholder="Digite sua senha"
-    
+npm run dev: Inicia o servidor de desenvolvimento.
 
-    value={password}
+npm run build: Cria a versão otimizada da sua aplicação para produção.
 
+npm start: Roda a versão de produção da aplicação.
 
-    
+Divirta-se criando! 😎
 
-    <button  type="submit">Entrar</button>
-
-    
-
-    {msg && <p>{msg}</p>}
-
-    </div>
-
-    );
-
-    }
-
-Explicação:
-
- - Usa useState para armazenar email, password e msg (mensagem de
-   retorno). 
- - Envia os dados para o endpoint /api/login usando axios.
- - Exibe a mensagem retornada pelo backend (sucesso ou erro).
-
-**Acessando Endpoints no App**
-Com o servidor rodando em npm run dev, abra em:
-http://localhost:3000/signin
-
-Preencha as credenciais e teste o login:
-
-Email: admin@teste.com
-Senha: 123456
-
-Observe a mensagem exibida após clicar em Entrar.
-
-Realizando o Deploy
-
-Para colocar o backend no ar:
-
- 1. Crie uma conta gratuita em Vercel
- 2. Instale a Vercel CLI
-
-    npm install -g vercel
-
- 3. Na pasta do projeto, execute:
-
-    vercel
-
-Siga as instruções interativas: 
-
- 1. Faça login.
- 2. Escolha o repositório.
- 3. Confirme as configurações.
- 4. Após o deploy, a Vercel fornecerá um link público para seu projeto.
-
-  
-
+Se você tiver dúvidas ou precisar de ajuda, não hesite em nos procurar! 🚀
